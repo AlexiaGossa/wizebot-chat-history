@@ -1,0 +1,47 @@
+/*
+ *	License
+ * 	Copyright 2024 Alexia Gossa / nemelit.com
+ *	Some part are from @treguy on 2024-05-01 
+ *
+ *  License identifier : BSD-3-Clause
+ *
+ *  Alexia Gossa
+ *  nemelit.com
+ *  FRANCE
+ */
+
+body {
+	/* From @treguy on 2024-05-01 */
+	display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+}
+
+#messages, #messages_backup {
+	height: fit-content !important;
+	overflow: visible !important;
+}
+
+@keyframes message_appear {
+	 0% { background-color: #FF8080; }
+	 5% { background-color: #000000; }
+	10% { background-color: #8080FF; }
+	15% { background-color: #000000; }
+	20% { background-color: #FF8080; }
+	25% { background-color: #000000; }
+	30% { background-color: #8080FF; }
+	35% { background-color: #000000; }
+	40% { background-color: #FF8080; }
+	45% { background-color: #000000; }
+	50% { background-color: #8080FF; }
+	55% { background-color: #000000; }
+	60% { background-color: #FF8080; }
+	65% { background-color: #000000; }
+	70% { background-color: #8080FF; }
+	75% { background-color: #000000; }
+	80% { background-color: #FF8080; }
+	85% { background-color: #000000; }
+	90% { background-color: #8080FF; }
+	95% { background-color: #000000; }
+	100% { background-color: transparent; }
+}
