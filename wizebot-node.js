@@ -1,7 +1,7 @@
 /*
  *	License
  * 	Copyright 2024 Alexia Gossa / nemelit.com
- *	Some part are from @treguy on 2024-05-01 
+ *	Some part are from Fabien Tregan on 2024-05-01 
  *
  *  License identifier : BSD-3-Clause
  *
@@ -98,7 +98,7 @@ else
 //	Read inject JS data
 //
 var sInjectJS;
-if (fs.existsSync(sWizebotInjectCSS))
+if (fs.existsSync(sWizebotInjectJS))
 	sInjectJS 		= fs.readFileSync ( sWizebotInjectJS, { encoding: 'utf8', flag: 'r' } );
 else
 {
