@@ -50,7 +50,7 @@ With your ssh session :
 
 5. Select the clean (on the right side) template
 
-6. Import the following HTML code in the <b>HTML</b> part :
+6. Import the following HTML code into the Wizebot <b>HTML</b> part :
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
@@ -74,9 +74,9 @@ With your ssh session :
 <!-- TAGs available : {user_name} {user_display_name} {user_name_full} (Display name + Username) {user_color} {user_invert_color} (For background ?) {user_badges} {message_text} {message_time} {message_type} {message_color} (For announcement type) -->
 ```
 
-7. Clear the CSS code in the <b>CSS</b> part
+7. Clear the CSS code in the Wizebot <b>CSS</b> part
 
-8. Keep the Javascript code in the <b>JAVASCRIPT</b> part
+8. Keep the Javascript code in the Wizebot <b>JAVASCRIPT</b> part
 
 9. Click on "Copy the link" on the top of the Wizebot web page
 
