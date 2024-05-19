@@ -82,6 +82,8 @@ if (fs.existsSync(sWizebotBackup))
 else
 	sBackupMessages = "";
 
+//sBackupMessages = "";
+
 //
 //	Read inject CSS data
 //
@@ -155,10 +157,9 @@ else
 		}
 
 		//Insert backup messages
-		const oDivMessagesBackup = document.createElement('div');
-		oDivMessagesBackup.setAttribute("id", "messages_backup" );
-		oDivMessagesBackup.innerHTML = sBackupMessages;
-		document.body.insertBefore ( oDivMessagesBackup, document.body.firstChild );
+		const oDivMessages = document.getElementById ( 'messages' );
+		oDivMessages.innerHTML = sBackupMessages;
+		
 		
 		//Insert inject CSS
 		const oInsertStyle = document.createElement('style');
@@ -293,10 +294,18 @@ function ProcessBackupMessages ( )
 	(async() => {
 		
 		var sBackupAllMessages = await oPage.evaluate(() => {
-			return document.getElementById("messages_backup").innerHTML + document.getElementById("messages").innerHTML;
+			var oMessages = document.getElementById("messages");
+			var sHTML = null;
+			
+			if (oMessages!=null)
+				sHTML = oMessages.innerHTML;
+				
+			return sHTML;
 		});
 		
-		fs.writeFileSync(sWizebotBackup, sBackupAllMessages, { encoding: '', flag: 'w' } );
+		if (sBackupAllMessages!=null)
+			fs.writeFileSync(sWizebotBackup, sBackupAllMessages, { encoding: '', flag: 'w' } );
+		
 	})();
 	
 	setTimeout ( ProcessBackupMessages, 1000 );
@@ -309,45 +318,66 @@ function ResponseServerToQuery ( req, res )
 {
 	//Get highlights and reset parameters
 	const { searchParams } = new URL ( "https://fakedomain.com"+req.url );
-	var bHighlight 	= searchParams.has("highlight");
-	var bReset 		= searchParams.has("reset");
+	var bHighlight 	 	= searchParams.has("highlight");
+	var bReset 		 	= searchParams.has("reset");
+	var sHeight		 	= "";
+	var sHeightColor 	= "";
+	var sFontSize		= "";
+	
+	if (searchParams.has("height"))
+		sHeight = searchParams.get("height");
+
+	if (searchParams.has("heightcolor"))
+		sHeightColor = searchParams.get("heightcolor");
+
+	if (searchParams.has("messagesize"))
+	{
+		sFontSize = "<style>.message { font-size: "+searchParams.get("messagesize")+";}</style>";
+	}
+
+	if (searchParams.has("nicksize"))
+	{
+		sFontSize = "<style>.nicksimple { font-size: "+searchParams.get("nicksize")+";}</style>";
+	}
 	
 	//Query data
 	(async() => {
-		var sData = await oPage.evaluate( (bReset) => {
+		var sData = await oPage.evaluate( (bReset,sHeight,sHeightColor,sFontSize) => {
 			var oMessages;
 			var oMessage;
+			var sGradient;
 			
 			if (bReset==true)
 			{
 				//Clear all messages
 				document.getElementById("messages").innerHTML = "";
-				document.getElementById("messages_backup").innerHTML = "";
 			}
 			else
 			{
 				//Remove all animation remaining
-				oMessages = document.getElementById ("messages_backup").children;
-				for (oMessage of oMessages)
-				{
-					oMessage.style.animationDuration = "";
-					oMessage.style.animationName = "";
-				}
 				oMessages = document.getElementById ("messages").children;
 				for (oMessage of oMessages)
 				{
 					oMessage.style.animationDuration = "";
 					oMessage.style.animationName = "";
 				}
-				
-				//Backup all messages to div messages_backup
-				document.getElementById("messages_backup").innerHTML = document.getElementById("messages_backup").innerHTML + document.getElementById("messages").innerHTML;
-				document.getElementById("messages").innerHTML = "";
 			}
 			
+			if (sHeight=="")
+				sGradient = "";
+			else
+			{
+				if (sHeightColor=="")
+					sGradient = ""
+				else
+					sGradient = 'linear-gradient(180deg, rgba(120, 120, 120, 0.5) 0%, rgba(120, 120, 120, 0.5) '+sHeight+', '+sHeightColor+' 1px, '+sHeightColor+' 100%)';
+			}
 			
-			return document.documentElement.innerHTML;
-		}, bReset );
+			document.getElementById("messages").style.height 				= sHeight;
+			document.getElementById("messagescontainer").style.background 	= sGradient;
+			
+			return document.documentElement.innerHTML + sFontSize;
+		}, bReset,sHeight,sHeightColor,sFontSize );
 		
 		//Insert highlight parameter
 		sData += "<script>var bNewMessageHighlight = "+bHighlight+";</script>";

@@ -1,7 +1,7 @@
 /*
  *	License
  * 	Copyright 2024 Alexia Gossa / nemelit.com
- *	Some part are from @treguy on 2024-05-01 
+ *	Some part are from Fabien Tregan on 2024-05-01 
  *
  *  License identifier : BSD-3-Clause
  *
@@ -36,8 +36,19 @@ function CheckMessages ( bHighlightLast )
 		}
 	}
 	
+	/*
+	oNicks = document.getElementsByClassName ("nick");
+	for (oNickname of oNicks)
+	{
+		oSticker = oNickname.parentElement.getElementsByClassName("sticker");
+		oSticker[0].style.backgroundColor = oNickname.style.color;
+		oNickname.style.textShadow = "";
+		oNickname.style.color = "";
+	}
+	*/
+	
 	//Limit messages...
-	oMessages 		= document.getElementsByClassName("message_div");
+	oMessages = document.getElementById ("messages").getElementsByClassName("message_div");
 	iMessagesCount 	= oMessages.length;
 	iMessagesCount -= iMessageMaxCount;
 	if (iMessagesCount>0)
@@ -49,22 +60,21 @@ function CheckMessages ( bHighlightLast )
 	}
 	
 	//Rename wizebot
-	const oNicknames = document.getElementsByClassName("nick");
+	var oNicknames = document.getElementsByClassName("nick");
+	for (oNickname of oNicknames)
+	{
+		if (oNickname.innerHTML=="WizeBot")
+			oNickname.innerHTML = "OncleBot";
+	}
+	oNicknames = document.getElementsByClassName("nicksimple");
 	for (oNickname of oNicknames)
 	{
 		if (oNickname.innerHTML=="WizeBot")
 			oNickname.innerHTML = "OncleBot";
 	}
 	
+	
 	//Remove Bot system_start
-	oMessages = document.getElementById ("messages_backup").getElementsByClassName("message_div");
-	for (oMessage of oMessages)
-	{
-		if (oMessage.getAttribute("id")=="system_start")
-		{
-			oMessage.style.display = "none";
-		}
-	}
 	oMessages = document.getElementById ("messages").getElementsByClassName("message_div");
 	for (oMessage of oMessages)
 	{

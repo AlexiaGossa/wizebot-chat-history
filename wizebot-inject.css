@@ -1,7 +1,7 @@
 /*
  *	License
  * 	Copyright 2024 Alexia Gossa / nemelit.com
- *	Some part are from @treguy on 2024-05-01 
+ *	Some part are from Fabien Tregan on 2024-05-01 
  *
  *  License identifier : BSD-3-Clause
  *
@@ -11,15 +11,145 @@
  */
 
 body {
-	/* From @treguy on 2024-05-01 */
-	display: flex !important;
+	/* From Fabien Tregan on 2024-05-01 */
+	/*display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
+	*/
 }
 
-#messages, #messages_backup {
-	height: fit-content !important;
-	overflow: visible !important;
+
+
+
+body {
+	background-color: #888;
+}
+
+body, html, #messages {
+    overflow: hidden;
+}
+
+#messagescontainer {
+    height: calc(100% - 20px) !important;
+	width: calc(100% - 20px) !important;
+	margin: 5px;
+	border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, .5);
+    background-color: rgba(120, 120, 120, 0.5);
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, .5), 0 2px 5px rgba(0, 0, 0, .5);
+    border-left: 0;
+    border-right: 0;
+	padding: 5px;
+}
+
+#messages {	
+	
+	width: 100%;
+	height: 100%;
+	
+	/* From Fabien Tregan on 2024-05-01 */
+	display: flex;
+	flex-direction: column;    
+    justify-content: flex-end;
+}
+
+.message_div {
+    font-family: 'Inter',Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 4vw;
+    font-weight: 300;
+    color: #fff;
+    margin: 5px 5px 15px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.message {
+    /*margin: 5px;*/
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.nick {
+    font-weight: 600;
+    color: #FFF !important;
+    display: none;
+}
+
+.nicksimple {
+    font-weight: 600;
+    color: #FFF;
+    display: inline-block;
+    float: right;
+    text-shadow: 0 0px 3px #000;
+}
+
+.badges {
+    display: inline-block;
+    float: right;
+    height: 1.22em;
+    margin-left: 0.5em;
+}
+
+.badges:empty {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.badge {
+    vertical-align: middle;
+    width: 1.22em;
+    border-radius: 3px;
+    margin-left: 2px;
+}
+
+.emote {
+    vertical-align: middle;
+    width: 4vw;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.time {
+    vertical-align: middle;
+    width: 12vw;
+    background-color: #444;
+    color: #CCFFFF;
+    border-radius: 1vw;
+    text-align: center;
+    float: right;
+    height: 1.22em;
+    margin-left: 0.5em;
+}
+
+.sticker {
+    height: 1.22em;
+    width: 1.22em;
+    border-radius: 0.5em;
+    display: inline-block;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #000;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: inset 0 1px 3px rgba(255, 255, 255, .9), 0 2px 3px rgba(0, 0, 0, .5);    
+}
+
+
+.left {
+    /*float: left;*/
+    display: none;
+}
+
+.right {
+    /*float: right;*/
+}
+
+.mention {
+    padding: 3px 8px;
+    background-color: rgba(10,10,100,0.8);
+}
+
+.template {
+    display: none;
 }
 
 @keyframes message_appear {
