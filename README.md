@@ -141,7 +141,7 @@ We add the script into cron at startup, this command edit the cron with vim :
 
 And adding the following line into the cron
 
-`@reboot sh /var/nodejs/wizebot-chat-history/wizebot-run.sh`
+`@reboot sh /var/nodejs/wizebot-chat-history/wizebot-run.sh > /var/nodejs/wizebot-chat-history/wizebot-run.log`
 
 > Note : If you prefer edit the cron with nano instead of vim
 >
