@@ -138,7 +138,12 @@ We assume the script is running on a system using the IP 192.168.1.126 and using
 The History is immediately cleared. All opened webpages need to be reloaded.
 <br/>
 <br/>
+Open a new browser tab and paste the following url.<br/>
 > <span>http://</span>192.168.1.126:8080/?reset
+<br/><br/>
+Wait for tab loading and close it. Now you need to reload all other tabs and windows displaying the chat.<br/>
+<br/>
+This feature is very usefull before starting a new live stream to clear all previous messages.<br/>
 <br/><br/>
 <hr>
 
