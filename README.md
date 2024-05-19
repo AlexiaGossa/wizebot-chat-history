@@ -44,7 +44,7 @@ With your ssh session :
 
 2. Open Widgets (overlays)
 
-3. Open Widget Tchat
+3. Open Widget chatbot
 
 4. Create a new widget
 
@@ -118,35 +118,88 @@ Running...
 Press CTRL+C to stop the script.
 
 
-<h2>Install and start the script with the system</h21>
+<h2>Install and start the script with the system</h2>
 
 To do...
 
 
 <h1>Wizebot history URL parameters</h1>
- 
 
-Clean history immediately
-http://10.138.45.126:8080/?reset
+We assume the script is running on a system using the IP 192.168.1.126 and using the HTTP 8080 port.
+<br/>
+<hr>
 
-Display below the tchat a flat color.
-height is tchat text is percents.
-heightcolor is a rgb value.
-http://10.138.45.126:8080/?height=80%&heightcolor=rgb(255,230,200)
+<h3>Basic display</h3>
+> <span>http://</span>192.168.1.126:8080/
+<br/><br/>
+<hr>
 
-Change text messages size
-http://10.138.45.126:8080/?messagesize=2.5vw
+<h3>Clean history immediately</h3>
+> <span>http://</span>192.168.1.126:8080/?reset
+<br/><br/>
+<hr>
 
-Change the nickname size
-http://10.138.45.126:8080/?nicksize=4vw
+<h3>Display a flat color below the chatbot</h3>
+<p>There is 2 parameters : height and heightcolor :
+<br/>
+<b>height</b> is chatbot text area in percents.
+<br/>
+<b>heightcolor</b> is flat area color using a rgb value.</p>
+<br/>
+URL samples</br>
+> <span>http://</span>192.168.1.126:8080/?height=80%&heightcolor=rgb(255,230,200)
+</br>
+> <span>http://</span>192.168.1.126:8080/?height=63%&heightcolor=rgb(255,255,255)
+<br/><br/>
+<hr>
 
-Combine all parameters like this
-http://10.138.45.126:8080/?height=80%&heightcolor=rgb(200,255,200)&messagesize=2vh&nickname=3vh
+<h3>Change text messages size</h3>
+<b>messagesize</b> is message size in css units (I recommand you tu use vw and vh).
+<br/>
+<a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">More information about CSS units.</a><br/>
+<br/>
+URL samples</br>
+> <span>http://</span>192.168.1.126:8080/?messagesize=2.5vw
+<br/>
+> <span>http://</span>192.168.1.126:8080/?messagesize=4vh
+<br/><br/>
+<hr>
 
-http://10.138.45.126:8080/?height=60%&heightcolor=rgb(255,255,255)&messagesize=3vw&nickname=5vw
 
-Using the highlight parameter to highlight a new message
-The highlight provides a feature for streamer to highlight all incoming messages.
-http://10.138.45.126:8080/?height=60%&heightcolor=rgb(255,255,255)&messagesize=3vw&nickname=5vw&highlight
+<h3>Change the nickname size</h3>
+<b>nicksize</b> is nickname size in css units (I recommand you tu use vw and vh).
+<br/>
+</br>
+URL samples</br>
+> <span>http://</span>192.168.1.126:8080/?nicksize=4vw
+<br/>
+> <span>http://</span>192.168.1.126:8080/?nicksize=5.2vh
+<br/><br/>
+<hr>
+
+
+<h3>Highlight a new message</h3>
+Highlighting a new message is a feature very useful for streamer to highlight all new incoming messages.
+</br>
+<b>highlight</b> parameter without any value will enable the feature. The new incoming messages is blinked some few seconds to highlight them.
+</br>
+</br>
+URL sample</br>
+> <span>http://</span>192.168.1.126:8080/?height=60%&heightcolor=rgb(255,255,255)&messagesize=3vw&nickname=5vw&highlight
+<br/><br/>
+<hr>
+
+
+<h3>Combine multiple parameters</h3>
+You could combine multiple parameters... You must use ? for the first parameter and & for each of the following parameters. 
+</br>
+</br>
+URL samples</br>
+> <span>http://</span>192.168.1.126:8080/?height=80%&heightcolor=rgb(200,255,200)&messagesize=2vh&nickname=3vh
+</br>
+> <span>http://</span>192.168.1.126:8080/?height=60%&heightcolor=rgb(255,255,255)&messagesize=3vw&nickname=5vw
+</br>
+
+
 
 
