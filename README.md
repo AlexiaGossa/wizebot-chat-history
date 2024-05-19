@@ -157,7 +157,7 @@ URL samples</br>
 <hr>
 
 <h3>Change text messages size</h3>
-<b>messagesize</b> is message size in css units (I recommand you tu use vw and vh).
+<b>messagesize</b> is message size in css units (I recommand you to use vw and vh).
 <br/>
 <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units">More information about CSS units.</a><br/>
 <br/>
@@ -170,7 +170,7 @@ URL samples</br>
 
 
 <h3>Change the nickname size</h3>
-<b>nicksize</b> is nickname size in css units (I recommand you tu use vw and vh).
+<b>nicksize</b> is nickname size in css units (I recommand you to use vw and vh).
 <br/>
 </br>
 URL samples</br>
