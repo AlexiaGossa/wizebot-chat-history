@@ -1,4 +1,4 @@
-<h1>How to prepare your AlmaLinux 9.4</h1>
+<h1>How to prepare your AlmaLinux 9.3 or 9.4</h1>
 
 Connect to a ssh with a root or similar account on your AlmaLinux :
 
