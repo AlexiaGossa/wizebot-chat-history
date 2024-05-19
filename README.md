@@ -1,54 +1,58 @@
-How to install NodeJS, Puppeteer, Chromium and the script into AlmaLinux 9.4
+<h1>How to prepare your AlmaLinux 9.4</h1>
 
-1. Install NodeJS, Chromium, Git and Puppeteer
+Connect to a ssh with a root or similar account on your AlmaLinux :
 
-dnf install epel-release
+`dnf install epel-release`
 
-dnf module enable nodejs:20
+`dnf module enable nodejs:20`
 
-dnf install nodejs -y
+`dnf install nodejs -y`
 
-dnf install chromium -y
+`dnf install chromium -y`
 
-dnf install git -y
+`dnf install git -y`
 
-node -v
+`node -v`
 
-npm i puppeteer
+`npm i puppeteer`
 
-npm install puppeteer-core
+`npm install puppeteer-core`
 
-npm install -g npm
-
-
-
-2. Get the wizebot-chat-history
-
-cd /var
-
-mkdir nodejs
-
-cd nodejs
-
-git clone https://github.com/AlexiaGossa/wizebot-chat-history
-
-cd wizebot-chat-history
+`npm install -g npm`
 
 
-3. How to insert the tchat wizebot widget URL into wizebot-url.txt ?
+
+<h1>Install the script</h1>
+
+With your ssh session :
+
+`cd /var`
+
+`mkdir nodejs`
+
+`cd nodejs`
+
+`git clone https://github.com/AlexiaGossa/wizebot-chat-history`
+
+`cd wizebot-chat-history`
+
+
+
+<h1>How to use the script</h1>
    
-Go to your wizebot.tv admin panel
+1. Go to your wizebot.tv admin panel
 
-Open Widgets (overlays)
+2. Open Widgets (overlays)
 
-Open Widget Tchat
+3. Open Widget Tchat
 
-Create a new widget
+4. Create a new widget
 
-Select the clean (on the right side) template
+5. Select the clean (on the right side) template
 
+6. Import the following HTML code in the <b>HTML</b> part :
 
-Import the following html code :
+```html
 <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
 
 <div class="template message_div animated fadeIn">
@@ -68,27 +72,59 @@ Import the following html code :
 
 <!-- Horizontal order : dir="ltr" = Left to right / dir="rtl" = Right to left -->
 <!-- TAGs available : {user_name} {user_display_name} {user_name_full} (Display name + Username) {user_color} {user_invert_color} (For background ?) {user_badges} {message_text} {message_time} {message_type} {message_color} (For announcement type) -->
+```
 
-Clear the CSS code
+7. Clear the CSS code in the <b>CSS</b> part
 
-Keep the JS code
+8. Keep the Javascript code in the <b>JAVASCRIPT</b> part
 
-Click on "Copy the link"
-Insert the link (URL) into the file "wizebot-url.txt"
+9. Click on "Copy the link" on the top of the Wizebot web page
 
-Now you could modify the CSS file named "wizebot-inject.css" to apply your own design.
+10. With your ssh session, open the <b>wizebot-url.txt</b> with nano `nano wizebot-url.txt` and paste the link into nano.
 
 
-How to execute the wizebot-chat-history
-Run the command : node wizebot-node.js
+
+
+<h1>Customize the design</h1>
+
+Now you could modify the CSS file named <b>wizebot-inject.css</b> to apply your own design.
+
+<b>Don't forget to restart the nodeJS script after each modification.</b>
+
+
+<h1>Run the script</h1>
+
+<h2>Configure your firewall / Open ports</h2>
+
+Open 1 or 2 TCP ports on your system :
+
+8080 for HTTP
+
+8443 for HTTPS if you provide some certs
+
+<h2>Want to immediately test the script ?</h2>
+
+You want to execute the wizebot-chat-history script now ?
+
+Run the command : `node wizebot-node.js`
+
 You'll see the following text :
+
+```
 HTTP server started
 Running...
+```
 
 Press CTRL+C to stop the script.
 
 
-All Wizebot history URL parameters
+<h2>Install and start the script with the system</h21>
+
+To do...
+
+
+<h1>Wizebot history URL parameters</h1>
+ 
 
 Clean history immediately
 http://10.138.45.126:8080/?reset
