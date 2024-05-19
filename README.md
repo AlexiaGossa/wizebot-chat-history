@@ -2,9 +2,9 @@
 
 ## Install
 
-How to install **NodeJS**, **Puppeteer**, **Chromium** and **the script** into **AlmaLinux 9.4**
+How to install **NodeJS**, **Puppeteer**, **Chromium**, **Git** and **the script** into **AlmaLinux 9.4**
 
-1. Install NodeJS, Chromium, Git and Puppeteer
+1. Install dependencies
 
 ```
 dnf install epel-release
@@ -28,7 +28,7 @@ npm install -g npm
 
 
 
-2. Get the wizebot-chat-history
+2. Get the **wizebot-chat-history**
 
 ```
 cd /var
@@ -43,7 +43,7 @@ cd wizebot-chat-history
 ```
 
 
-3. How to insert the tchat wizebot widget URL into wizebot-url.txt ?
+3. How to insert the tchat wizebot widget URL into **wizebot-url.txt** ?
    
 - Go to your wizebot.tv admin panel
 - Open Widgets (overlays)
