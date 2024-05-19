@@ -135,7 +135,7 @@ With your ssh session :
 
 `chmod +x wizebot-run.sh`
 
-We add the script into cron at startup.
+We add the script into cron at startup, this command edit the cron with vim :
 
 `crontab -e`
 
@@ -143,6 +143,13 @@ And adding the following line into the cron
 
 `@reboot sh /var/nodejs/wizebot-chat-history/wizebot-run.sh`
 
+> Note : If you prefer edit the cron with nano instead of vim
+>
+>   `export VISUAL=nano`
+>
+>   Or reselect VIM
+>
+>   `export VISUAL=vim`
 
 <h1>Wizebot history URL parameters</h1>
 
