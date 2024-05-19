@@ -24,13 +24,6 @@ Connect to a ssh with a root or similar account on your AlmaLinux :
 
 `node -v`
 
-`npm i puppeteer`
-
-`npm install puppeteer-core`
-
-`npm install -g npm`
-
-
 
 <h1>Install the script</h1>
 
@@ -45,6 +38,12 @@ With your ssh session :
 `git clone https://github.com/AlexiaGossa/wizebot-chat-history`
 
 `cd wizebot-chat-history`
+
+`npm i puppeteer`
+
+`npm install puppeteer-core`
+
+`npm install -g npm`
 
 
 
@@ -86,11 +85,13 @@ With your ssh session :
 
 7. Clear the CSS code in the Wizebot <b>CSS</b> part
 
-8. Keep the Javascript code in the Wizebot <b>JAVASCRIPT</b> part
+8. Change the channel name in the Javascript code in the Wizebot <b>JAVASCRIPT</b> part to <b>your channel name</b>
 
-9. Click on "Copy the link" on the top of the Wizebot web page
+   For my Twitch channel, I use : `var channel_name = "alexia_vassiliki";`
 
-10. With your ssh session, open the <b>wizebot-url.txt</b> with nano `nano wizebot-url.txt` and paste the link into nano.
+10. Click on "Copy the link" on the top of the Wizebot web page
+
+11. With your ssh session, open the <b>wizebot-url.txt</b> with nano `nano wizebot-url.txt` and paste the link into nano.
 
 
 
