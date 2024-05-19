@@ -131,7 +131,17 @@ Press CTRL+C to stop the script.
 
 <h2>Install and start the script with the system</h2>
 
-To do...
+With your ssh session :
+
+`chmod +x wizebot-run.sh`
+
+We add the script into cron at startup.
+
+`crontab -e`
+
+And adding the following line into the cron
+
+`@reboot sh /var/nodejs/wizebot-chat-history/wizebot-run.sh`
 
 
 <h1>Wizebot history URL parameters</h1>
