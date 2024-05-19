@@ -1,3 +1,13 @@
+<h1>Why this script wizebot-chat-history ?</h1>
+I am a streamer on Twitch platform.</br>
+</br>
+To display the chat in OBS, we can use a Wizebot widget overlay. This allows us to have a different chat while enjoying effects and features from Wizebot.</br>
+However when using some scenes in OBS with different chat configurations for each scene, the chat history is lost.</br>
+</br>
+The purpose of this script is to maintain this history and ensure it is available even if we are not streaming.</br>
+</br>
+
+
 <h1>How to prepare your AlmaLinux 9.3 or 9.4</h1>
 
 Connect to a ssh with a root or similar account on your AlmaLinux :
