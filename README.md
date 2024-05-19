@@ -134,7 +134,10 @@ We assume the script is running on a system using the IP 192.168.1.126 and using
 <br/><br/>
 <hr>
 
-<h3>Clean history immediately</h3>
+<h3>Clear history immediately</h3>
+The History is immediately cleared. All opened webpages need to be reloaded.
+<br/>
+<br/>
 > <span>http://</span>192.168.1.126:8080/?reset
 <br/><br/>
 <hr>
