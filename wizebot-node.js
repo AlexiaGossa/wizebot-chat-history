@@ -221,11 +221,17 @@ else
 				break;
 				
 			case '':
+				sScriptFileConcat += '\n';
+				sScriptFileConcat += '//Concat javascript embedded code\n\n';
 				sScriptFileConcat += oScript.code;
+				sScriptFileConcat += '\n';
 				break;
 				
 			default:
+				sScriptFileConcat += '\n';
+				sScriptFileConcat += '//Concat javascript external code : ' + oScript.src + '\n\n';
 				sScriptFileConcat += await fileDownload ( oScript.src );
+				sScriptFileConcat += '\n';
 				break;
 		}
 	}
