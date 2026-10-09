@@ -87,7 +87,7 @@ With your ssh session :
 
 8. Change the channel name in the Javascript code in the Wizebot <b>JAVASCRIPT</b> part to <b>your channel name</b>
 
-   For my Twitch channel, I use : `var channel_name = "alexia_vassiliki";`
+   For my Twitch channel, I use : `var channel_name = "alexia_gossa";`
 
 10. Click on "Copy the link" on the top of the Wizebot web page
 
