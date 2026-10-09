@@ -1,6 +1,6 @@
 /*
  *	License
- * 	Copyright 2024 Alexia Gossa / nemelit.com
+ * 	Copyright 2024, 2025, 2026 Alexia Gossa / nemelit.com
  *	Some part are from Fabien Tregan on 2024-05-01 
  *
  *  License identifier : BSD-3-Clause
@@ -31,15 +31,20 @@ body, html, #messages {
 
 #messagescontainer {
     height: calc(100% - 20px) !important;
-	width: calc(100% - 20px) !important;
+	width: calc(100% - 10px) !important;
 	margin: 5px;
+    border-left: 0;
+    border-right: 0;
+	padding: 5px;
+	
+	/*2025-12-27 : Alexia Gossa
 	border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, .5);
     background-color: rgba(120, 120, 120, 0.5);
     box-shadow: inset 0 0 15px rgba(255, 255, 255, .5), 0 2px 5px rgba(0, 0, 0, .5);
-    border-left: 0;
-    border-right: 0;
-	padding: 5px;
+	
+	*/
+	
 }
 
 #messages {	
@@ -51,22 +56,88 @@ body, html, #messages {
 	display: flex;
 	flex-direction: column;    
     justify-content: flex-end;
+	
+	
+	transform: var(--chat-messages-transform);
+	transform-origin: var(--chat-messages-transform-origin);
+	overflow: visible;
+	
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%);
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%);
+	
+	
+	/*
+    transform: perspective(145em) rotate3d(-3, 0.5, 0, -24deg);
+    transform-origin: 90% 110%;
+    overflow: visible;	
+	*/
+	/*
+    transform: perspective(100em) rotate3d(-3, 0.8, 0, -24deg);
+    transform-origin: 90% 110%;
+    overflow: visible;	
+	*/
 }
 
 .message_div {
-    font-family: 'Inter',Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: "Ubuntu", sans-serif;
+
+	/*'Inter',Helvetica Neue,Helvetica,Arial,sans-serif;*/
     font-size: 4vw;
     font-weight: 300;
     color: #fff;
     margin: 5px 5px 15px;
     padding: 5px;
     border-radius: 10px;
+	
+	/*2025-12-27 : Alexia Gossa*/
+	transition: all 0.5s ease-out;
+	text-align: var(--chat-align);
 }
 
 .message {
     /*margin: 5px;*/
+	
+	
+	/*
+	2025-12-27 : Alexia Gossa
     display: inline-block;
     margin-top: 5px;
+	*/
+    /*background-color: rgba(0, 0, 0, 0.25);*/
+    width: fit-content;
+    position: relative;
+    left: var(--chat-message-left);
+    transform: var(--chat-message-transform);
+	padding: 0.5em 0.5em;
+	/*text-shadow: 0 0.05em 0.2em #000, 0 -0.05em 0.2em #000, 0 0.1em 0.2em #000, 0 0.2em 0.2em #000;*/
+	/*text-shadow:
+		-0.1em -0.1em 0.2em #000,
+		 0.1em -0.1em 0.2em #000,
+		 0.1em  0.1em 0.2em #000,
+		-0.1em  0.1em 0.2em #000;
+	*/
+	/*
+	text-shadow:
+		 0em -0.1em 0.2em rgba(0,0,0,0.5),
+		 0em  0.1em 0.2em rgba(0,0,0,0.5),
+		 -0.3em  0em 0.2em rgba(0,0,0,0.5),
+		 0.3em  0em 0.2em rgba(0,0,0,0.5);
+		 
+	filter:
+		drop-shadow(-0.1em  0em 0.2em rgba(0,0,0,0.5) )
+		drop-shadow( 0.1em  0em 0.2em rgba(0,0,0,0.5) );
+	*/	
+	background-color: rgba(32,32,32,1);
+    border-radius: var(--chat-message-border-radius);
+	z-index: 101;
+	
+	box-shadow: 0 0.0em 0.2em rgba(255, 255, 255, 0.8),
+			    0 0.0em 0.2em rgba(0, 0, 0, 0.5);
+	/*
+	0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.6);
+		*/
+	word-break: break-word;
 }
 
 .nick {
@@ -78,9 +149,27 @@ body, html, #messages {
 .nicksimple {
     font-weight: 600;
     color: #FFF;
-    display: inline-block;
-    float: right;
     text-shadow: 0 0px 3px #000;
+	
+	
+	/*
+	2025-12-27 : Alexia Gossa
+	display: inline-block;
+	float: right;
+	*/
+    background-color: rgba(0,0,0,0.95);
+    /*text-align: right;*/
+    display: inline-block;	
+    padding: 0.3em 0.5em;
+    border-radius: 0.5em 0.5em 0 0;	
+    right: 0;
+    position: relative;
+	/*transform: rotate(3deg) translate(0.6em, 0.0em);*/
+	z-index:100;
+	box-shadow: 0 -0.0em 0.2em rgba(255, 255, 255, 0.8),
+			    0 -0.0em 0.2em rgba(0, 0, 0, 0.5);
+	transform: translate(0, -0.1em);
+	
 }
 
 .badges {
@@ -88,6 +177,9 @@ body, html, #messages {
     float: right;
     height: 1.22em;
     margin-left: 0.5em;
+	
+	/*2025-12-27 : Alexia Gossa*/
+	display: none;
 }
 
 .badges:empty {
@@ -104,9 +196,10 @@ body, html, #messages {
 
 .emote {
     vertical-align: middle;
-    width: 4vw;
-    margin-left: 5px;
-    margin-right: 5px;
+    /*width: 4vw;*/
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+	width: 3em;
 }
 
 .time {
@@ -119,6 +212,9 @@ body, html, #messages {
     float: right;
     height: 1.22em;
     margin-left: 0.5em;
+	
+	/*2025-12-27 : Alexia Gossa*/
+	display: none;
 }
 
 .sticker {
@@ -130,7 +226,10 @@ body, html, #messages {
     border-bottom: 1px solid #000;
     border-left: 0;
     border-right: 0;
-    box-shadow: inset 0 1px 3px rgba(255, 255, 255, .9), 0 2px 3px rgba(0, 0, 0, .5);    
+    box-shadow: inset 0 1px 3px rgba(255, 255, 255, .9), 0 2px 3px rgba(0, 0, 0, .5);   
+	
+	/*2025-12-27 : Alexia Gossa*/
+	display: none;
 }
 
 
@@ -174,4 +273,18 @@ body, html, #messages {
 	90% { background-color: #8080FF; }
 	95% { background-color: #000000; }
 	100% { background-color: transparent; }
+}
+
+@keyframes message_show {
+	0% { transform: var(--chat-message-show-transform); opacity: 0; }
+	100% { transform: translateX(0); opacity: 1; height: 100%; }
+}
+
+#messages > .message_div:last-child {
+	animation: message_show 1000ms ease-in-out both;
+	height: 0px;
+}
+
+#messages > .message_div:not(:last-child) {
+	transition: transform 1000ms ease-in-out;
 }
